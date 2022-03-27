@@ -1,11 +1,12 @@
-import { Controller, HttpCode, HttpStatus, Post } from '@nestjs/common';
+import { Controller, Get, HttpCode, HttpStatus } from '@nestjs/common';
+import { MessageService } from 'src/application/service/message.service';
 
-@Controller()
+@Controller('/message')
 export class MessageController {
-
-  @Post()
+  constructor(private messageService: MessageService) {}
+  @Get()
   @HttpCode(HttpStatus.CREATED)
   async addMessage(): Promise<void> {
-      
+    this.messageService.addMessage();
   }
 }

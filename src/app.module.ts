@@ -5,7 +5,12 @@ import { AppService } from './app.service';
 import { MessageModule } from './application/ioc/message.module';
 
 @Module({
-  imports: [MessageModule, ConfigModule.forRoot()],
+  imports: [
+    MessageModule,
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
+  ],
   controllers: [AppController],
   providers: [AppService],
 })
