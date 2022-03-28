@@ -20,8 +20,8 @@ async function bootstrap() {
     timeWindow: '1 minute',
     global: true,
   });
-
-  await app.listen(process.env.PORT || 5555);
+  console.log(process.env.PORT);
+  await app.listen(process.env.PORT || 5555, '0.0.0.0');
   console.log(`Application is running on: ${await app.getUrl()}`);
 }
 bootstrap();
